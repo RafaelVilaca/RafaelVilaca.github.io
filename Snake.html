@@ -8,30 +8,15 @@
 		<script type="text/javascript" rel="stylesheet" type='text/javascript' src='js/jquery.js'></script> 
 		<script type="text/javascript" rel="stylesheet" type='text/javascript' src='js/javascript.js'></script> 
 	</head>
-	<body>
-
-	<table border= 1 id="tabelaJogo">
-		<tr><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td>
-		<td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td></tr>
-		<tr><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td>
-		<td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td></tr>
-		<tr><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td>
-		<td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td></tr>
-		<tr><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td>
-		<td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td></tr>
-		<tr><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td>
-		<td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td></tr>
-		<tr><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td>
-		<td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td></tr>
-		<tr><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td>
-		<td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td></tr>
-		<tr><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td>
-		<td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td></tr>
-		<tr><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td>
-		<td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td></tr>
-		<tr><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td>
-		<td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td><td width="40" height="40"></td></tr>
-	</table>
+	<body>	
+ 
+	<button type="button" onClick="Automatico(snake)" id="btPausa">Iniciar</button> 
+	<!--<button type="button" onClick="novoJogo()" id="btNovo">Novo Jogo</button>-->
+	<div id="pontuacao">SCORE:</div>
+	
+	<div id="tela">
+		<div id="snake" class="snake" onclick="MoverVertical(this)"></div>
+	</div>
 
 	</body>
 </html>

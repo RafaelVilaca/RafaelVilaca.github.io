@@ -1,6 +1,61 @@
 @charset "UTF-8";
 
-table#tabelaJogo {
+/*table#tabelaJogo {
     margin-left: 380px;
     margin-top: 50px;
+}*/
+
+button {
+	/*display:block;*/
+    width:100px;
+    height:40px;
+    font-weight:bold;
+    color:#0B0B61;
+    /*background:url(../imagens/imagem-do-botao.png) no-repeat center center;*/
+    border:ridge; 
+    /*background-size: 100% 100%;*/
+    background-color: #81F7F3;
+    border-radius: 10px 20px;
+    position: absolute;
+}
+
+#btPausa {
+    margin-left: 25px;
+    left: 105px;
+}
+
+#btNovo{
+	left: 12px;
+}
+
+#tela {
+	background:url(../imagens/Fundo-jogo.jpg) no-repeat center center;
+	background-size: 100% 100%;
+	width:800px; 
+	height:550px;
+    margin-left: 25px;
+    border-style: inset;
+    position: absolute;
+    left: 230px;
+    top: 80px;
+}
+
+#pontuacao{
+    margin-top: 10px;
+    color: gold;
+    font-size: 50px;
+    margin-left: 440px;
+}
+
+body {
+	background-color: #000000;
+} 
+
+.snake{
+	float:left;
+	width: 50px;
+	height: 50px;
+	background:url(../imagens/fundo-cobra.jpg) no-repeat center center;
+	border-radius: 30%;
+	background-size: 100% 100%;	
 }
