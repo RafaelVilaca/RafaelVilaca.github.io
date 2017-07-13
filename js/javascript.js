@@ -1,20 +1,20 @@
-var vertical = new Array ("83", "133", "183", "233", "283", "333", "383", "433", "483", "533", "583");
+﻿var vertical = new Array ("83", "133", "183", "233", "283", "333", "383", "433", "483", "533", "583");
 var horizontal = new Array ("258", "308", "358", "408", "458", "508", "558", "608", "658", "708", "758", "808", "858", "908", "958", "1008");
 var count = 1;
-var velocidade = 570;
+var velocidade = 510;
 var dDirecao = 39;
 var pontosTotal = -20;
-var inicio = 0; var horaInicio = 0; var minutoInicio = 0; var segundoInicio = 0;
-
-var atual = 0; var horaAtual = 0; var minutoAtual = 0; var segundoAtual = 0;
-
-var horaCron = 0; var minutoCron = 0; var segundoCron = 0;
+var cFrutinha = 10;
+var horaCron = ""; 
+var minutoCron = 0;
+var segundoCron = 0;
+var a = 0;
+var b = 0;
 
 function AutomaticoDireita()
 {	
-	//debugger;
-	var a = $("#corpo1").offset().left;
-	var b = $("#corpo1").offset().top;
+	a = $("#corpo1").offset().left;
+	b = $("#corpo1").offset().top;
 	$('#corpo1').offset({ left: $('#corpo1').offset().left + 50});
 	if($('#corpo1').offset().left > 1008)
 		$('#corpo1').offset({ left: 258})
@@ -23,8 +23,8 @@ function AutomaticoDireita()
 
 function AutomaticoEsquerda()
 {	
-	var a = $("#corpo1").offset().left;
-	var b = $("#corpo1").offset().top;
+	a = $("#corpo1").offset().left;
+	b = $("#corpo1").offset().top;
 	$('#corpo1').offset({ left: $('#corpo1').offset().left - 50});	
 	if($('#corpo1').offset().left < 258)
 		$('#corpo1').offset({ left: 1008})
@@ -33,8 +33,8 @@ function AutomaticoEsquerda()
 
 function AutomaticoCima()
 {
-	var a = $("#corpo1").offset().left;
-	var b = $("#corpo1").offset().top;
+	a = $("#corpo1").offset().left;
+	b = $("#corpo1").offset().top;
 	$('#corpo1').offset({ top: $('#corpo1').offset().top - 50});	
 	if($('#corpo1').offset().top < 83)
 		$('#corpo1').offset({ top: 583})
@@ -43,8 +43,8 @@ function AutomaticoCima()
 
 function AutomaticoBaixo()
 {	
-	var a = $("#corpo1").offset().left;
-	var b = $("#corpo1").offset().top;
+	a = $("#corpo1").offset().left;
+	b = $("#corpo1").offset().top;
 	$('#corpo1').offset({ top: $('#corpo1').offset().top + 50});	
 	if($('#corpo1').offset().top > 583)
 		$('#corpo1').offset({ top: 83})
@@ -56,75 +56,61 @@ function Crescer(a, b)
 	count++;
 	$("#tela").append($("<div id='corpo"+count+"' class='corpo1'></div>"));
 	$('#corpo'+count).offset({ top: b, left: a })	
-	velocidade -= 10;
+	velocidade -= 5;
 	pontosTotal += 10;
 	Pontuacao();
+	clearInterval(refreshIntervalId);
 }
 
 function Frutinha()
 {	
-	//debugger;
 	var x = Math.floor((Math.random() * 16) + 0);
 	var y = Math.floor((Math.random() * 11) + 0);
 	var nVertical = vertical[y];
 	var nHorizontal = horizontal[x];
-	
-	$('#frutinha').offset({ top: nVertical});
-	$('#frutinha').offset({ left: nHorizontal});
-	var validador = count;
-	for(var cCorpo = count ; cCorpo > 1 ; cCorpo--)
+
+	for(var cCorpo = count ; cCorpo >= 1 ; cCorpo--)
 	{
 		if(($('#corpo'+cCorpo).offset().top == nVertical) && ($('#corpo'+cCorpo).offset().left == nHorizontal))
 		{
+			cCorpo = count;
 			x = Math.floor((Math.random() * 16) + 0);
 			y = Math.floor((Math.random() * 11) + 0);
 			nVertical = vertical[y];
 			nHorizontal = horizontal[x];
-			$('#frutinha').offset({ top: nVertical});
-			$('#frutinha').offset({ left: nHorizontal});
 		}
 	}
+	$('#frutinha').offset({ top: nVertical, left: nHorizontal});
+	
+	cFrutinha = 10;
 }
 
-function HoraAtual()
+function Cronometrando()
 {
-	atual = new Date();
-	horaAtual = atual.getHours();
-	minutoAtual = atual.getMinutes();
-	segundoAtual = atual.getSeconds();
-
-} 
-
-function Cronometro()
-{
-	HoraAtual();
-
-	horaCron = horaInicio - horaAtual;
-	minutoCron = minutoInicio - minutoAtual;
-	segundoCron = segundoInicio - segundoAtual;
-
-	document.getElementById('cronometro').innerHTML = (horaCron + ":" + minutoCron + ":" + segundoCron);
-
-	setInterval("Cronometro()", 1000);
+	segundoCron++;
+	if (segundoCron == 60) {
+		minutoCron++;
+		segundoCron = 0;
+	}
+	horaCron = " "+minutoCron+":"+segundoCron; 
 }
 
-function Inicio() 
+function CronoFrutinha()
 {
-	inicio = new Date();
-	horaInicio = inicio.getHours();
-	minutoInicio = inicio.getMinutes();
-	segundoInicio = inicio.getSeconds();
+	cFrutinha--;
+	if (cFrutinha < 0) {
+		Frutinha();
+		cFrutinha = 10;
+	} 
 }
 
 function Verifica(a, b)
 {
-	//debugger;
 	if(($('#corpo1').offset().top == $('#frutinha').offset().top) && ($('#corpo1').offset().left == $('#frutinha').offset().left))
 	{
 		Crescer(a, b);
 		Frutinha();
 	} 
-	//debugger;
 	for ( var cCorpo = count ; cCorpo > 1 ; cCorpo--)
 	{
 		if(cCorpo == 2)
@@ -140,18 +126,16 @@ function Verifica(a, b)
 
 		if(($('#corpo1').offset().top == $('#corpo'+cCorpo).offset().top) && ($('#corpo1').offset().left == $('#corpo'+cCorpo).offset().left))
 		{
-			alert('Vc Morreu!');
-			//InicioJogo();
+			alert('Vc Morreu!\nPontuação: ' + pontosTotal);
 			Reload();
 		}
 
 		if (pontosTotal == 1000) 
 		{
-			alert('Parabéns!!!!\nVc Venceu!');
-			//InicioJogo();
+			alert('Incriveis 1000 Pontos\nParabéns!!!!\nVc Venceu!');
 			Reload();
 		}
-	}
+	}	
 }
 
 function Reload()
@@ -161,8 +145,8 @@ function Reload()
 
 function InicioJogo()
 {	
-	var a = $("#corpo1").offset().left;
-	var b = $("#corpo1").offset().top;
+	a = $("#corpo1").offset().left;
+	b = $("#corpo1").offset().top;
 	$('#corpo1').offset({ left: $('#corpo1').offset().left + 50});
 	Crescer(a, b);
 	$('#corpo1').offset({ left: $('#corpo1').offset().left + 50});
@@ -170,6 +154,7 @@ function InicioJogo()
 	Crescer(a, b);
 	Pontuacao();
 	Cronometro();
+	CFrutinha();
 }
 
 function MoverAutomaticamente(numeroDirecao)
@@ -188,18 +173,15 @@ function MoverAutomaticamente(numeroDirecao)
 		case 38:  /*seta para cima */
 		AutomaticoCima();
 		break;	
-	}	
-	//dDirecao = numeroDirecao;
-}
-
-function Pontuacao()
-{
-	document.getElementById('pontos').innerHTML = pontosTotal;
+	}
+	clearInterval(refreshIntervalId);
+	refreshIntervalId = setInterval(function(){		
+		MoverAutomaticamente(dDirecao);
+	}, velocidade);		
 }
 
 $(document).keydown(function(evt)
 {	
-	debugger;
 	if(dDirecao == 37)
 	{
 		if(evt.keyCode != 39)
@@ -238,6 +220,28 @@ $(document).keydown(function(evt)
 		dDirecao = 39;
 })
 
-setInterval( function(){		
+function Pontuacao()
+{
+	document.getElementById('pontos').innerHTML = pontosTotal;
+}
+
+function Cronometro()
+{
+	document.getElementById('cronometro').innerHTML = horaCron;
+}
+
+function CFrutinha()
+{
+	document.getElementById('cronoFrutinha').innerHTML = cFrutinha;
+}
+
+var refreshIntervalId = setInterval(function(){		
 	MoverAutomaticamente(dDirecao);
-}, velocidade );
+}, velocidade);
+
+setInterval( function(){		
+	Cronometrando();
+	CronoFrutinha();
+	Cronometro();
+	CFrutinha();
+}, 1000 );
