@@ -1,0 +1,191 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Monoton');
+
+body {
+	/*background-image: url("../_imagens/fundo.jpg");*/
+	color: rgba(0,0,0,1);
+	font-family: Arial, sans-serif;
+	background-color: #DCDCDC;
+}
+
+h2 {
+	margin-top: 12px;
+}
+
+div#casas {
+	width: 165px;
+	height: 165px;
+	background-color: #faf2f3;
+	box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+}
+
+div#interface {
+	width: 507px;
+	height: 600px;
+	background-color: #faf2f3;
+	margin: auto;
+	box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+	padding: 10px;
+	margin-top: 5px;
+	border-style: inset;
+	background-image: url("../imagens/fundo.jpg");
+}
+
+#casa1{
+	margin: -5px;
+}
+#casa2{
+	left: 173px;
+	top: -160px;
+	position: relative;
+}
+#casa3{
+	left: 350px;
+	top: -325px;
+	position: relative;
+}
+#casa4{
+	margin: -5px;
+	top: -310px;
+	position: relative;
+}
+#casa5{
+	margin: -5px;
+	top: -470px;
+	left: 177px;
+	position: relative;
+}
+#casa6{
+	margin: -5px;
+	left: 354px;
+	top: -630px;
+	position: relative;
+}
+#casa7{
+	margin: -5px;
+	top: -615px;
+	position: relative;
+}
+#casa8{
+	margin: -5px;
+	left: 177px;
+	top: -775px;
+	position: relative;
+}
+#casa9{
+	margin: -5px;
+	left: 354px;
+	top: -935px;
+	position: relative;
+}
+
+#ranking {
+	width: 224px;
+	height: 132px;
+	margin: auto;
+	box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+	padding: 10px;
+	border-style: inset;
+	background-image: url("../imagens/th.jpg");
+	font-family: sans-serif;
+	left: -440px;
+	top: -510px;
+	position: relative;
+	float: left;
+}
+
+h2#ranking{
+	text-align: center;
+}
+
+#botao{
+	position:relative;
+  	top:-940px;
+  	left: -6px;
+  	box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+  	height: 90px;
+  	width: 520px;
+  	font-size: 50px;
+  	font-family: 'Monoton', cursive;
+  	background-image: url("../imagens/th.jpg");
+  	background-repeat: no-repeat; 
+}
+
+#p1 {
+	position: relative;
+	width: 200px;
+	height: 50px;
+	box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+	padding: 10px;
+	float: left;
+    	left: 10px;
+    	top: -625px;
+}
+
+#p2 {
+	position: relative;
+	width: 200px;
+	height: 50px;
+	margin: auto;
+	box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+	padding: 10px;
+    	float: left;
+    	left: 20px;
+    	top: -625px;
+}
+
+#pt1{
+	margin-left: 147px;
+	margin-top: -57px;
+	font-size: 35px;
+	text-align: center;
+}
+
+#pt2{
+	float: right;
+	margin-top: -57px;
+	font-size: 35px;
+	text-align: center;
+}
+
+#ranX{
+	margin-top: -97px;
+}
+
+.pontosranking{
+	font-size: 35px;
+	text-align: center;
+	width: 150px;
+	height: 40px;
+	border-style: inset;
+	background-image: url("../imagens/th.jpg");
+	font-family: sans-serif;
+	right: -67px;
+	position: relative;
+}
+
+.pontos {
+	position: relative;
+	width: 50px;
+	height: 40px;
+	border-style: inset;
+	background-image: url("../imagens/th.jpg");
+	font-family: sans-serif;	
+}
+
+.casas {
+	width: 165px;
+	height: 165px;
+	background-color: #faf2f3;
+	box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+	text-align: center;
+	font-family: 'Monoton', cursive;
+	font-size: 120px;
+}
+
+.casas:hover {
+	background-color: #ADD8E6; /*url("../imagens/JogodaVelha01.jpg") no-repeat 0px 90px;*/
+	position: relative;
+	transition: .6s;
+	opacity: 1;
+}

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE>
+<html>
+<head>
+<meta charset="UTF-8" />
+	<title>Jogo da Velha</title>
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+	<script type="text/javascript" src="javascript/funcoes.js"></script>
+</head>
+
+<body onload="rankingX(); rankingO(); verifica();">
+<div id="interface">
+	<div id="casa1" class="casas" onclick="joga(this.id);verif();"></div>
+	<div id="casa2" class="casas" onclick="joga(this.id);verif();"></div>
+	<div id="casa3" class="casas" onclick="joga(this.id);verif();"></div>
+	<div id="casa4" class="casas" onclick="joga(this.id);verif();"></div>
+	<div id="casa5" class="casas" onclick="joga(this.id);verif();"></div>
+	<div id="casa6" class="casas" onclick="joga(this.id);verif();"></div>
+	<div id="casa7" class="casas" onclick="joga(this.id);verif();"></div>
+	<div id="casa8" class="casas" onclick="joga(this.id);verif();"></div>
+	<div id="casa9" class="casas" onclick="joga(this.id);verif();"></div>
+	<br><input type="button" id="botao" name="limpar" value="Novo   Jogo" onclick="novo();" />
+</div>
+
+<div>
+<div id="p1" class="pontos"> 
+	<h2>Player "X":</h2>
+	<div id="pt1" class="pontos">0</div>
+</div>
+
+<div id="p2" class="pontos">
+	<h2>Player "O":</h2>
+	<div id="pt2" class="pontos">0</div>
+</div>
+</div>
+
+<div id="ranking">
+	<h2>Ranking de Vitórias</h2>
+	<h3 style="margin-left: 20px">X = </h3>
+	<h3 style="margin-left: 20px">O = </h3>
+	<div id="ranX" class="pontosranking"></div>
+	<div id="ranO" class="pontosranking"></div>
+</div>
+
+</body>
+</html>
+
